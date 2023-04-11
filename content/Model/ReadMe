@@ -5,3 +5,7 @@
 'LinSVR': LinearSVR - случайный лес
 'KNNReg': KNeighborsRegressor - метод опорных векторов             
 'RandForReg' : RandomForestRegressor - метод ближайших соседей 
+
+
+t1 - "Модуль упругости при растяжении, ГПа"
+t2 - "Прочность при растяжении, МПа"
