@@ -49,7 +49,7 @@ def target_predict(predictor, target, X):
     elif target == 2:  
         target_name = 't2'
 
-    file_path = Path(f'ModelML/{predict_name}_{target_name}.pkl')
+    file_path = Path(f'application/ModelML/{predict_name}_{target_name}.pkl')
     regressor = pickle.load(open(file_path,'rb'))   
     y = regressor.predict(X)
     return y
@@ -57,10 +57,10 @@ def target_predict(predictor, target, X):
 
 @st.cache_data
 def neuron_predict(X):  
-    file_path = Path('ModelNN/preprocessorNN.pkl')
+    file_path = Path('application/ModelNN/preprocessorNN.pkl')
     preprocessor = pickle.load(open(file_path,'rb'))   
     X = preprocessor.transform(X)
-    file_path = Path('ModelNN/Final_model.h5')
+    file_path = Path('application/ModelNN/Final_model.h5')
     regressor = load_model(file_path)
     y = regressor.predict(X)
     return y
@@ -110,11 +110,11 @@ with st.sidebar:
             st.write(f"<p style='font-size: 20px; color: darkred;''>{x8[0]:.2f}</p>", unsafe_allow_html=True)
             st.write("<p style='font-size: 14px;'>Прочность при растяжении, МПа</p>", unsafe_allow_html=True)
             st.write(f"<p style='font-size: 20px; color: darkred;''>{x9[0]:.2f}</p>", unsafe_allow_html=True)
-            file_path = Path('Image/Neuron.png')
+            file_path = Path('application/Image/Neuron.png')
             image = Image.open(file_path) 
             st.image(image)            
         with col1:
-            file_path = Path('Image/Target1.png')
+            file_path = Path('application/Image/Target1.png')
             image = Image.open(file_path) 
             st.image(image, "Метрики 'Модуль упругости при растяжении, ГПа'")
         with col2:
