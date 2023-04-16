@@ -2,12 +2,14 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+from pathlib import Path
 from keras.models import load_model
 
 st.set_page_config(page_title = 'olvovchik_VKR', layout = "wide", initial_sidebar_state = 'expanded')
 st.markdown("<h1 style='text-align: center; color: gray;'>Выпускная квалификационная работа по курсу «Data Science»</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: black; font-weight: bold; font-size: 24px;'>Прогнозирование конечных свойств новых материалов (композиционных материалов)<p>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: right; color: black;'>Олейник Владимир Александрович</p>", unsafe_allow_html=True)
+
 
 @st.cache_data
 def get_dataset(X, target):
@@ -25,6 +27,7 @@ def get_dataset(X, target):
                   
     df = pd.DataFrame(np.array(X).reshape(1,-1), columns = columns_name)
     return df
+
 
 
 @st.cache_data
@@ -45,16 +48,20 @@ def target_predict(predictor, target, X):
     elif target == 2:  
         target_name = 't2'
 
-    regressor = pickle.load(open(f'ModelML/{predict_name}_{target_name}.pkl','rb'))   
+    file_path = Path(f'ModelML/{predict_name}_{target_name}.pkl')
+    # file_path = (current_path+f'/ModelML/{predict_name}_{target_name}.pkl')
+    regressor = pickle.load(open(file_path,'rb'))   
     y = regressor.predict(X)
     return y
 
 
 @st.cache_data
 def neuron_predict(X):  
-    preprocessor = pickle.load(open('ModelNN/preprocessorNN.pkl','rb'))   
+    file_path = Path('ModelNN/preprocessorNN.pkl')
+    preprocessor = pickle.load(open(file_path,'rb'))   
     X = preprocessor.transform(X)
-    regressor = load_model('ModelNN/Final_model.h5')
+    file_path = Path('ModelNN/Final_model.h5')
+    regressor = load_model(file_path)
     y = regressor.predict(X)
     return y
 
