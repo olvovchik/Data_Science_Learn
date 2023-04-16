@@ -2,12 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-import sklearn 
-import tensorflow
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 
 st.set_page_config(page_title = 'olvovchik_VKR', layout = "wide", initial_sidebar_state = 'expanded')
-# st.title('Выпускная квалификационная работа по курсу «Data Science»')
 st.markdown("<h1 style='text-align: center; color: gray;'>Выпускная квалификационная работа по курсу «Data Science»</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: black; font-weight: bold; font-size: 24px;'>Прогнозирование конечных свойств новых материалов (композиционных материалов)<p>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: right; color: black;'>Олейник Владимир Александрович</p>", unsafe_allow_html=True)
@@ -37,7 +34,7 @@ def target_predict(predictor, target, X):
     elif predictor == 'DecisionTreeRegressor':    
         predict_name = 'DecTreeReg'
     elif predictor == 'RandomForestRegressor':    
-        predict_name = 'RanForReg'
+        predict_name = 'RandForReg'
     elif predictor == 'LinearSVR':    
         predict_name = 'LinSVR'
     elif predictor == 'KNeighborsRegressor':    
@@ -92,12 +89,12 @@ st.sidebar.header('Модели машинного обучения')
 with st.sidebar:
     model = st.selectbox('Выберите модель', models_list)
     if st.button('Получить прогнозы', use_container_width = True):
-        st.success('Успешно!', icon="✅")
+        st.image('Image/IconCheck.png')
+        # st.success('Успешно!', icon="✅")
         with col3:
             x8 = target_predict(model, 1, get_dataset([x2,x3,x4,x5,x6,x7,x10,x11,x12,x13],1))
             x9 = target_predict(model, 2, get_dataset([x2,x3,x4,x5,x6,x7,x10,x11,x12,x13],2))
             x1 = neuron_predict(get_dataset([x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13],3))
-            # background-color: rgb(240, 242, 246)
             st.markdown("<p style='font-size: 14px;'>Соотношение матрица-наполнитель</p>", unsafe_allow_html=True)
             st.write(f"<p style='font-size: 20px; color: darkred;''>{x1[0][0]:.4f}</p>", unsafe_allow_html=True) 
             st.write("<p style='font-size: 14px;'>Модуль упругости при растяжении, ГПа</p>", unsafe_allow_html=True)
@@ -105,7 +102,7 @@ with st.sidebar:
             st.write("<p style='font-size: 14px;'>Прочность при растяжении, МПа</p>", unsafe_allow_html=True)
             st.write(f"<p style='font-size: 20px; color: darkred;''>{x9[0]:.2f}</p>", unsafe_allow_html=True)
             st.image('Image/Neuron.png')
-        # with col1:
-        #     st.image('Image/Target1.png', "Метрики 'Модуль упругости при растяжении, ГПа'")
-        # with col2:
-        #     st.image('Image/Target2.png', "Метрики 'Прочность при растяжении, МПа'")    
+        with col1:
+            st.image('Image/Target1.png', "Метрики 'Модуль упругости при растяжении, ГПа'")
+        with col2:
+            st.image('Image/Target2.png', "Метрики 'Прочность при растяжении, МПа'")    
