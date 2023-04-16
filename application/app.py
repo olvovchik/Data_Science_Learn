@@ -118,6 +118,6 @@ with st.sidebar:
             image = Image.open(file_path) 
             st.image(image, "Метрики 'Модуль упругости при растяжении, ГПа'")
         with col2:
-            file_path = Path('Image/Target2.png')
+            file_path = Path('application/Image/Target2.png')
             image = Image.open(file_path) 
             st.image(image, "Метрики 'Прочность при растяжении, МПа'")    
