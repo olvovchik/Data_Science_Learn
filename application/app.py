@@ -96,7 +96,7 @@ st.sidebar.header('Модели машинного обучения')
 with st.sidebar:
     model = st.selectbox('Выберите модель', models_list)
     if st.button('Получить прогнозы', use_container_width = True):
-        file_path = Path('Image/IconCheck.png')
+        file_path = Path('application/Image/IconCheck.png')
         image = Image.open(file_path) 
         st.image(image)
         # st.success('Успешно!', icon="✅")
