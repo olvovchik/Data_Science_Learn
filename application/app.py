@@ -96,7 +96,7 @@ st.sidebar.header('Модели машинного обучения')
 with st.sidebar:
     model = st.selectbox('Выберите модель', models_list)
     if st.button('Получить прогнозы', use_container_width = True):
-        st.image('Image/IconCheck.png')
+        # st.image('Image/IconCheck.png')
         # st.success('Успешно!', icon="✅")
         with col3:
             x8 = target_predict(model, 1, get_dataset([x2,x3,x4,x5,x6,x7,x10,x11,x12,x13],1))
@@ -108,8 +108,8 @@ with st.sidebar:
             st.write(f"<p style='font-size: 20px; color: darkred;''>{x8[0]:.2f}</p>", unsafe_allow_html=True)
             st.write("<p style='font-size: 14px;'>Прочность при растяжении, МПа</p>", unsafe_allow_html=True)
             st.write(f"<p style='font-size: 20px; color: darkred;''>{x9[0]:.2f}</p>", unsafe_allow_html=True)
-            st.image('Image/Neuron.png')
-        with col1:
-            st.image('Image/Target1.png', "Метрики 'Модуль упругости при растяжении, ГПа'")
-        with col2:
-            st.image('Image/Target2.png', "Метрики 'Прочность при растяжении, МПа'")    
+        #     st.image('Image/Neuron.png')
+        # with col1:
+        #     st.image('Image/Target1.png', "Метрики 'Модуль упругости при растяжении, ГПа'")
+        # with col2:
+        #     st.image('Image/Target2.png', "Метрики 'Прочность при растяжении, МПа'")    
