@@ -77,19 +77,19 @@ col1, col2, col3  = st.columns(3, gap = 'medium')
 
 
 with col1:
-    x2 = st.number_input('Плотность, кг/м3', min_value=0, )
-    x3 = st.number_input('Модуль упругости, ГПа', min_value=0)
-    x4 = st.number_input('Количество отвердителя, м.%', min_value=0)
-    x5 = st.number_input('Содержание эпоксидных групп,%_2', min_value=0)
-    x6 = st.number_input('Температура вспышки, С_2', min_value=0)
+    x2 = st.number_input('Плотность, кг/м3', min_value=0., step = 1., format='%.2f')
+    x3 = st.number_input('Модуль упругости, ГПа', min_value=0., step = 1., format='%.2f')
+    x4 = st.number_input('Количество отвердителя, м.%', min_value=0., step = 1., format='%.2f')
+    x5 = st.number_input('Содержание эпоксидных групп,%_2', min_value=0., step = 1., format='%.2f')
+    x6 = st.number_input('Температура вспышки, С_2', min_value=0., step = 1., format='%.2f')
 
 
 with col2:    
-    x7 = st.number_input('Поверхностная плотность, г/м2', min_value=0)
-    x10 = st.number_input('Потребление смолы, г/м2', min_value=0)
+    x7 = st.number_input('Поверхностная плотность, г/м2', min_value=0., step = 1., format='%.2f')
+    x10 = st.number_input('Потребление смолы, г/м2', min_value=0., step = 1., format='%.2f')
     x11 = st.selectbox('Угол нашивки, град', [0, 90])
-    x12 = st.number_input('Шаг нашивки', min_value=0)
-    x13= st.number_input('Плотность нашивки', min_value=0)
+    x12 = st.number_input('Шаг нашивки', min_value=0., step = 1., format='%.2f')
+    x13= st.number_input('Плотность нашивки', min_value=0., step = 1., format='%.2f')
 
 
 st.sidebar.header('Модели машинного обучения')
