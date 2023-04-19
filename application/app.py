@@ -103,7 +103,7 @@ with st.sidebar:
         with col3:
             x8 = target_predict(model, 1, get_dataset([x2,x3,x4,x5,x6,x7,x10,x11,x12,x13],1))
             x9 = target_predict(model, 2, get_dataset([x2,x3,x4,x5,x6,x7,x10,x11,x12,x13],2))
-            x1 = neuron_predict(get_dataset([x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13],3))
+            x1 = neuron_predict(get_dataset([x2,x3,x4,x5,x6,x7,x8[0],x9[0],x10,x11,x12,x13],3))
             st.markdown("<p style='font-size: 14px;'>Соотношение матрица-наполнитель</p>", unsafe_allow_html=True)
             st.write(f"<p style='font-size: 20px; color: darkred;''>{x1[0][0]:.4f}</p>", unsafe_allow_html=True) 
             st.write("<p style='font-size: 14px;'>Модуль упругости при растяжении, ГПа</p>", unsafe_allow_html=True)
