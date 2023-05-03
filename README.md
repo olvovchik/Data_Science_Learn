@@ -1,8 +1,8 @@
 ## Выпускная квалификационная работа по курсу "Data Science"
 
 #### В корне репозитория находятся следующие файлы: 
-- OleynikVA_VKR.ipynb рабочая тетрадка Jupyter Notebook с очищенными "выводами" кода
-- OleynikVA_VKR.zip архив, который содержит рабочую тетрадка Jupyter Notebook со всеми "выводами" кода и файл requirements.txt  
+- OleynikVA_VKR.ipynb рабочая тетрадь Jupyter Notebook с очищенными "выводами" кода
+- OleynikVA_VKR.zip архив, который содержит рабочую тетрадь Jupyter Notebook со всеми "выводами" кода и файл requirements.txt  
 
 #### В папке "content" находятся файлы полученные в ходе анализа и выполнения работы 
 
