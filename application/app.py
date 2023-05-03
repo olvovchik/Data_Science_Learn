@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import tensorflow.compat.v2 as tf
 import pickle
 from keras.models import load_model
 from pathlib import Path
